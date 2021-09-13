@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 
 const ProductCard = ({ props: {price, description, img, name, category, _id} }) => {
   const imgPlaceHolder = "https://opensource.com/sites/default/files/styles/image-full-size/public/lead-images/bus-containers.png?itok=d_4QhZxT"

@@ -17,7 +17,7 @@ const EditProductView = ({ match }) => {
   useEffect(() => {
     getSingleProduct();
     getCategories();
-  }, []);
+  }, [id]);
 
   const handleChange = (event) => {
     setProduct({

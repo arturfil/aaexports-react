@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useHistory } from 'react-router'
 import { deleteCategoryFromApi, getCategoriesFromApi } from '../services/categoryService';
 import { Table } from 'react-bootstrap'
 
 const CategoriesView = () => {
   const [categories, setCategories] = useState([]);
-  const history = useHistory();
 
   useEffect(() => {
     getCategories();
@@ -20,7 +18,7 @@ const CategoriesView = () => {
     event.preventDefault();
     await deleteCategoryFromApi(id);
     let filtered = categories.filter(category => {
-      return category._id != id
+      return category._id !== id
     });
     setCategories(filtered);
   }

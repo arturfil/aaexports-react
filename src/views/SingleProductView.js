@@ -9,7 +9,7 @@ const SingleProductView = ({match}) => {
 
   useEffect(() => {
     getSingleProduct();
-  }, [])
+  }, [id])
 
 
   const getSingleProduct = async () => {
