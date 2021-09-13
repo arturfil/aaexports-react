@@ -85,7 +85,9 @@ const AddProductView = () => {
         />
         <select onChange={handleChange} name="category" className="form-control">
           {categories.map(category => (
-              <option value={category._id}>{category.name}</option>
+              <option key={category._id} value={category._id}>
+                {category.name}
+              </option>
           ))}
         </select>
         <br />

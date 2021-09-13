@@ -4,6 +4,11 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import ProductsView from './views/ProductsView';
 import NavBar from './components/NavBar';
 import AddProductView from './views/AddProductView';
+import SingleProductView from './views/SingleProductView';
+import EditProductView from './views/EditProductView';
+import AddCategoryView from './views/AddCategoryView';
+import CategoriesView from './views/CategoriesView';
+import OrdersView from './views/OrdersView';
 
 function App() {
   return (
@@ -11,8 +16,12 @@ function App() {
       <NavBar/>
       <Switch>
         <Route exact path="/" component={ProductsView} />
-        {/* <Route exact path="/product/:id" component={SingleProductView} /> */}
+        <Route exact path="/categories" component={CategoriesView} />
+        <Route exact path="/orders" component={OrdersView}/>
+        <Route exact path="/product/:id" component={SingleProductView}/>
+        <Route exact path="/editProduct/:id" component={EditProductView} />
         <Route exact path="/addProduct" component={AddProductView} />
+        <Route exact path="/addCategory" component={AddCategoryView} />
       </Switch>
     </BrowserRouter>
   );
