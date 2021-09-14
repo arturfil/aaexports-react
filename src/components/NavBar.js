@@ -20,10 +20,10 @@ const NavBar = () => {
           </Nav>
 
           <Nav>
-            <Link>
+            <Link to="/orders">
               <Cart size={20} />(4)
             </Link>
-            <Link to="/categories">Categories</Link>
+            <Link to="/login">Login</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

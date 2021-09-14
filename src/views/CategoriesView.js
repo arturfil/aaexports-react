@@ -25,12 +25,12 @@ const CategoriesView = () => {
 
   return (
     <div className="container mt-5">
-      <Table bordered style={{borderColor: 'black'}}>
+      <Table style={{borderColor: 'black'}}>
         <thead>
           <tr>
             <th>#</th>
             <th>Name</th>
-            <th></th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>

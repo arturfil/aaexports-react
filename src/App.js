@@ -9,6 +9,7 @@ import EditProductView from './views/EditProductView';
 import AddCategoryView from './views/AddCategoryView';
 import CategoriesView from './views/CategoriesView';
 import OrdersView from './views/OrdersView';
+import LoginView from './views/LoginView';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/editProduct/:id" component={EditProductView} />
         <Route exact path="/addProduct" component={AddProductView} />
         <Route exact path="/addCategory" component={AddCategoryView} />
+        <Route exact path="/login" component={LoginView} />
       </Switch>
     </BrowserRouter>
   );
