@@ -10,6 +10,7 @@ import AddCategoryView from './views/AddCategoryView';
 import CategoriesView from './views/CategoriesView';
 import OrdersView from './views/OrdersView';
 import LoginView from './views/LoginView';
+import AuthRoute from './components/AuthRoute';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <NavBar/>
       <Switch>
         <Route exact path="/" component={ProductsView} />
-        <Route exact path="/categories" component={CategoriesView} />
+        <AuthRoute exact path="/categories" component={CategoriesView} />
         <Route exact path="/orders" component={OrdersView}/>
         <Route exact path="/product/:id" component={SingleProductView}/>
         <Route exact path="/editProduct/:id" component={EditProductView} />

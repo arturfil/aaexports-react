@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react';
 import { loginUserToApi } from '../services/authService'
 
 const LoginView = () => {
   const [user, setUser] = useState({
     email: '',
     password: '',
-  })
+  });
 
   const handleChange = (event) => {
     setUser({
@@ -17,11 +17,16 @@ const LoginView = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const userResponse = await loginUserToApi(user);
+    setUser({
+      email: '',
+      password: ''
+    })
   }
 
   return (
     <div className="container mt-5">
-      <form style={{width: '400px'}}>
+
+      <form className="productForm" style={{width: '400px'}}>
         <h2>Login</h2>
         <input
           placeholder="email"
@@ -39,7 +44,7 @@ const LoginView = () => {
           type="password" 
           className="form-control" 
         />
-        <button onClick={handleSubmit} className="btn-btn-success">
+        <button onClick={handleSubmit} className="btn btn-success">
           Login
         </button>
       </form>

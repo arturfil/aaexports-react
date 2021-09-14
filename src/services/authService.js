@@ -11,3 +11,14 @@ export const loginUserToApi = async (user) => {
   }
   return response;
 }
+
+export const isAuthenticated = () => {
+  if(typeof window == 'undefined') {
+    return false;
+  }
+  if (localStorage.getItem('jwtaaexports')) {
+    return JSON.parse(localStorage.getItem('jwtaaexports'));
+    // return localStorage.getItem('jwt')
+  }
+    return false;
+}
