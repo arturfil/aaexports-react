@@ -38,7 +38,6 @@ const NavBar = () => {
             <Link to="/categories">Categories</Link>
             <Link to="/addProduct">Add Product</Link>
             <Link to="/addCategory">Add Category</Link>
-            <Link to="/orders">Orders</Link>
           </Nav>
 
           <Nav>
