@@ -20,8 +20,8 @@ const CartView = () => {
     const filtered = orders.filter((order, i) => {
       return i != index;
     })
+    localStorage.setItem('products', JSON.stringify(filtered));
     setOrders(filtered);
-    localStorage.setItem('products', JSON.stringify(orders));
   }
   
   return (
@@ -50,7 +50,9 @@ const CartView = () => {
           ))}
           { orders.length <= 0 && 
             <tr>
-              <h4>No Current Items in the Cart</h4>
+              <td>
+                <h4>No Current Items in the Cart</h4>
+              </td>
             </tr>
           }
         </tbody>

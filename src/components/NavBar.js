@@ -9,10 +9,12 @@ import "./NavBar.css";
 
 const NavBar = () => {
   const [authenticated, setAuthenticated] = useState(false);
+  const [count, setCount] = useState(0);
   const history = useHistory();
 
   useEffect(() => {
     checkAuth();
+    checkOrdersNumber();
   }, []);
 
   const checkAuth = () => {
@@ -20,6 +22,14 @@ const NavBar = () => {
       setAuthenticated(true);
     }
   };
+
+  const checkOrdersNumber = () => {
+    const items = JSON.parse(localStorage.getItem('products'));
+    let sum = items.reduce((acc, item) => {
+      return acc + 1;
+    }, 0);
+    setCount(sum);
+  }
 
   const handleLogOut = async () => {
     await logOut();
@@ -54,7 +64,7 @@ const NavBar = () => {
               <>
                 <Link to="/orders">
                   <Cart size={20} />
-                  (4)
+                  ({count})
                 </Link>
                 <button onClick={handleLogOut} className="btn btn-outline-dark">
                   Sign Out
