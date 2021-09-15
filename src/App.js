@@ -8,7 +8,7 @@ import SingleProductView from './views/SingleProductView';
 import EditProductView from './views/EditProductView';
 import AddCategoryView from './views/AddCategoryView';
 import CategoriesView from './views/CategoriesView';
-import OrdersView from './views/OrdersView';
+import CartView from './views/CartView';
 import LoginView from './views/LoginView';
 import AuthRoute from './components/AuthRoute';
 import AdminRoute from './components/AdminRoute';
@@ -20,7 +20,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={ProductsView} />
         <AdminRoute exact path="/categories" component={CategoriesView} />
-        <AuthRoute exact path="/orders" component={OrdersView}/>
+        <AuthRoute exact path="/orders" component={CartView}/>
         <Route exact path="/product/:id" component={SingleProductView}/>
         <AdminRoute exact path="/editProduct/:id" component={EditProductView} />
         <AdminRoute exact path="/addProduct" component={AddProductView} />

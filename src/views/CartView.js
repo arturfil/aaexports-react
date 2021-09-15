@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 
-const OrdersView = () => {
+const CartView = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -59,4 +59,4 @@ const OrdersView = () => {
   )
 }
 
-export default OrdersView;
+export default CartView;
