@@ -91,7 +91,7 @@ const AddProductView = () => {
           ))}
         </select>
         <br />
-        <button onClick={handleSubmit} className="btn btn-outline-primary">Create</button>
+        <button onClick={handleSubmit} className="btn btn-outline-dark form-control">Create</button>
       </form>
 
     </div>

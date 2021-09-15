@@ -32,7 +32,7 @@ const OrdersView = () => {
         </thead>
         <tbody>
           {orders.map((order, i) => (
-            <tr>
+            <tr key={i}>
               <td>{i+1}</td>
               <td>{order.name}</td>
               <td>

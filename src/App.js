@@ -11,6 +11,7 @@ import CategoriesView from './views/CategoriesView';
 import OrdersView from './views/OrdersView';
 import LoginView from './views/LoginView';
 import AuthRoute from './components/AuthRoute';
+import AdminRoute from './components/AdminRoute';
 
 function App() {
   return (
@@ -18,12 +19,12 @@ function App() {
       <NavBar/>
       <Switch>
         <Route exact path="/" component={ProductsView} />
-        <AuthRoute exact path="/categories" component={CategoriesView} />
-        <Route exact path="/orders" component={OrdersView}/>
+        <AdminRoute exact path="/categories" component={CategoriesView} />
+        <AuthRoute exact path="/orders" component={OrdersView}/>
         <Route exact path="/product/:id" component={SingleProductView}/>
-        <Route exact path="/editProduct/:id" component={EditProductView} />
-        <Route exact path="/addProduct" component={AddProductView} />
-        <Route exact path="/addCategory" component={AddCategoryView} />
+        <AdminRoute exact path="/editProduct/:id" component={EditProductView} />
+        <AdminRoute exact path="/addProduct" component={AddProductView} />
+        <AdminRoute exact path="/addCategory" component={AddCategoryView} />
         <Route exact path="/login" component={LoginView} />
       </Switch>
     </BrowserRouter>

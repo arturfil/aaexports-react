@@ -35,7 +35,7 @@ const CategoriesView = () => {
         </thead>
         <tbody>
           {categories.map((category, i) => (
-            <tr>
+            <tr key={category._id}>
               <td>{i+1}</td>
               <td>{category.name}</td>
               <td>

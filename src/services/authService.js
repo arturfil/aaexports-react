@@ -5,7 +5,9 @@ export const loginUserToApi = async (user) => {
   const response = await axios.post(`${apiUrl}/auth/login`, user);
   try {
     console.log(response.data);
-    localStorage.setItem('jwtaaexports', JSON.stringify(response.data))
+    if (response.data.user) {
+      localStorage.setItem('jwtaaexports', JSON.stringify(response.data))
+    }
   } catch (error) {
     console.log(error)
   }
@@ -18,7 +20,10 @@ export const isAuthenticated = () => {
   }
   if (localStorage.getItem('jwtaaexports')) {
     return JSON.parse(localStorage.getItem('jwtaaexports'));
-    // return localStorage.getItem('jwt')
   }
-    return false;
+  return false;
+}
+
+export const logOut = async () => {
+  await localStorage.removeItem('jwtaaexports');
 }

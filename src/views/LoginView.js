@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import { loginUserToApi } from '../services/authService'
 
 const LoginView = () => {
+  const history = useHistory();
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -14,6 +16,7 @@ const LoginView = () => {
     })
   }
 
+  // login function
   const handleSubmit = async (event) => {
     event.preventDefault();
     const userResponse = await loginUserToApi(user);
@@ -21,6 +24,8 @@ const LoginView = () => {
       email: '',
       password: ''
     })
+    window.location.reload();
+    history.push('/')
   }
 
   return (
@@ -44,7 +49,7 @@ const LoginView = () => {
           type="password" 
           className="form-control" 
         />
-        <button onClick={handleSubmit} className="btn btn-success">
+        <button onClick={handleSubmit} className="btn btn-outline-dark form-control">
           Login
         </button>
       </form>
@@ -53,3 +58,5 @@ const LoginView = () => {
 }
 
 export default LoginView
+
+
