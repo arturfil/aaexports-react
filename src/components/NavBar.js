@@ -25,6 +25,7 @@ const NavBar = () => {
 
   const checkOrdersNumber = () => {
     const items = JSON.parse(localStorage.getItem('products'));
+    if (!items) return;
     let sum = items.reduce((acc, item) => {
       return acc + 1;
     }, 0);
