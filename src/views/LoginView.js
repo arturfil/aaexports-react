@@ -24,7 +24,7 @@ const LoginView = () => {
       email: '',
       password: ''
     })
-    // window.location.reload();
+    window.location.reload();
     history.push('/')
   }
 
