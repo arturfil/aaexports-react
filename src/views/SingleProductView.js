@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { isAuthenticated } from "../services/authService";
 import { getSingleProductFromApi } from "../services/productService";
 
 const SingleProductView = ({match}) => {
   const [product, setProduct] = useState({});
+  const [object, setObject] = useState(isAuthenticated());
   const {id} = match.params;
-
 
   useEffect(() => {
     getSingleProduct();
@@ -36,11 +37,13 @@ const SingleProductView = ({match}) => {
           <h2>{product.name}</h2>
           <p>{product.description}</p>
           <p>{product.category?.name}</p>
-          <Link 
-            to={`/editProduct/${id}`} 
-            className="btn btn-primary">
-              Edit
-          </Link>
+          {object && object.user.role === 'ADMIN' && (
+            <Link 
+              to={`/editProduct/${id}`} 
+              className="btn btn-primary">
+                Edit
+            </Link>
+          )}
           <button
             onClick={addProductToCart} 
             style={{marginLeft: '5px'}} 
