@@ -93,8 +93,8 @@ const AddProductView = () => {
               type="file"
               placeholder="image" 
             />
-            <select onChange={handleChange} name="category" className="form-control">
-              <option selected disabled>Select a Category</option>
+            <select defaultValue={'none'} onChange={handleChange} name="category" className="form-control">
+              <option value={'none'} disabled>Select a Category</option>
               {categories.map(category => (
                   <option key={category._id} value={category._id}>
                     {category.name}

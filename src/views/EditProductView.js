@@ -19,6 +19,7 @@ const EditProductView = ({ match }) => {
     getCategories();
   }, [id]);
 
+  // handle change of state
   const handleChange = (event) => {
     setProduct({
       ...product,
@@ -26,6 +27,7 @@ const EditProductView = ({ match }) => {
     });
   };
 
+  // handle submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     await updateProductToApi(product);
@@ -33,12 +35,14 @@ const EditProductView = ({ match }) => {
     history.push("/");
   };
 
+  // handle deletion from user
   const handleDelete = async (event) => {
     event.preventDefault();
     await deleteProductFromApi(id);
     history.push("/");
   };
 
+  // handle Imager upload separately
   const handleImageUpload = async (event) => {
     const option = window.confirm("Are you sure you want to upload this image?");
     if(!option) return;
@@ -47,11 +51,13 @@ const EditProductView = ({ match }) => {
     getSingleProduct();
   }
 
+  // get product details
   const getSingleProduct = async () => {
     const response = await getSingleProductFromApi(id);
     setProduct(response.data);
   };
 
+  // get categories to iterate in the categories
   const getCategories = async () => {
     const { data } = await getCategoriesFromApi(); // same as singleProduct func but with destructuring
     setCategories(data);
@@ -84,11 +90,12 @@ const EditProductView = ({ match }) => {
             />
             <label className="mb-3">Category</label>
             <select
+              defaultValue={product.category?.name}
               onChange={handleChange}
               name="category"
               className="form-control"
             >
-              <option>Current: {product.category?.name}</option>
+              <option disabled value={product.category?.name}>Current: {product.category?.name}</option>
               {categories.map((category) => (
                 <option key={category._id} value={category._id}>
                   {category.name}
