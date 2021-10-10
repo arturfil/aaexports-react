@@ -13,7 +13,12 @@ export const getSingleProductFromApi = async (id) => {
 }
 
 export const postProductToApi = async (product) => {
-  const response = await axios.post(`${apiUrl}/products/product`, product);
+  const {img, ...newProduct} = product;
+  // const formData = new FormData();
+  // formData.append('image', img);
+  const response = await axios.post(`${apiUrl}/products/product`, newProduct);
+  await imageUploadToApi(response.data._id, img)
+  console.log(response);
   return response;
 }
 

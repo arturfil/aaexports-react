@@ -21,9 +21,11 @@ const SingleProductView = ({match}) => {
     if (localStorage.getItem('products')) {
       let array = JSON.parse(localStorage.getItem('products'));
       localStorage.setItem('products', JSON.stringify([...array, product]))
+      window.location.reload();
       return;
     }
     localStorage.setItem('products', JSON.stringify([product]));
+    window.location.reload();
   }
 
   return (
