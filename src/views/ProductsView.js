@@ -30,7 +30,7 @@ const ProductsView = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container my-5">
       <div className="row">
         {loading && (
           <div style={{margin: '0 auto', textAlign: 'center'}}>
@@ -41,7 +41,7 @@ const ProductsView = () => {
 
         {products &&
           products.map((product) => (
-            <div key={product._id} className="col">
+            <div key={product._id} className="col-xl-3 col-lg-4 col-md-6 my-3">
               <ProductCard props={product} />
             </div>
           ))}

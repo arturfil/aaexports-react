@@ -31,7 +31,7 @@ const LoginView = () => {
   return (
     <div className="container mt-5">
 
-      <form className="productForm" style={{width: '400px'}}>
+      <form className="productForm">
         <h2>Login</h2>
         <input
           placeholder="email"

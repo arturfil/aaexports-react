@@ -41,7 +41,11 @@ const NavBar = () => {
   return (
     <Navbar className="navbar" expand="lg">
       <Container>
-        <Navbar.Brand>A&AExports</Navbar.Brand>
+        <Navbar.Brand>
+          <Link to="/">
+            A&AExports
+          </Link>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
