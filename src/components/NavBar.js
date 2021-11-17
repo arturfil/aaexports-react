@@ -50,9 +50,15 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link to="/">Home</Link>
-            <Link to="/categories">Categories</Link>
-            <Link to="/addProduct">Add Product</Link>
-            <Link to="/addCategory">Add Category</Link>
+            { isAuthenticated() && isAuthenticated().user.role === 'ADMIN' && 
+              (
+                <>
+                  <Link to="/categories">Categories</Link>
+                  <Link to="/addProduct">Add Product</Link>
+                  <Link to="/addCategory">Add Category</Link>
+                </>
+              )
+            }
           </Nav>
 
           <Nav>
